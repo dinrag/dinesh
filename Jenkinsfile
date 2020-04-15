@@ -8,7 +8,7 @@ pipeline {
             }
         }
         stage('---test----') {
-            def mvnHome= tool name: 'm3'
+            
             steps {
                 sh "mvn test"
             }
