@@ -11,7 +11,7 @@ pipeline {
             def mvnHome= tool name: 'maven'
    
             sh "${mvnHome}/bin/mvn test"
-            }
+            
         }
         stage('--package--') {
             steps {
