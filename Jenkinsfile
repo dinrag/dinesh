@@ -2,21 +2,11 @@ pipeline {
     agent any
 
     stages {
-        stage('---clean--') {
+        stage ('compile') {
             steps {
-                sh "mvn clean"
-            }
-        }
-        stage('---test----') {
-            def mvnHome= tool name: 'maven'
-   
-            sh "${mvnHome}/bin/mvn test"
-            
-        }
-        stage('--package--') {
-            steps {
-                sh "mvn package"
+                withMaven(maven : 'maven_3_6_3') {
+                    sh 'mvn clean complile'
+                }
             }
         }
     }
-}
